@@ -1,0 +1,622 @@
+/*               _____      __    __
+ *   ___  ____  / __(_)__  / /___/ /
+ *  / _ \/ __ \/ /_/ / _ \/ / __  /
+ * /  __/ / / / __/ /  __/ / /_/ /
+ * \___/_/ /_/_/ /_/\___/_/\__,_/
+ *
+ * Designed, built, and released under MIT license by @skylerlee.
+ * Learn more at https://github.com/skylerlee/codelet.
+ */
+
+@import "normalize";
+
+/*
+ * Contents
+ *
+ * Global resets
+ * Wrapper
+ * Container
+ * Masthead
+ * Sidebar
+ * Slide effect
+ * Posts and pages
+ * Pagination
+ * Icon
+ * Tags
+ */
+
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  background-color: #fff;
+}
+
+/* No `:visited` state is required by default (browsers will use `a`) */
+a {
+  color: #4e5ebb;
+  text-decoration: none;
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.25;
+  color: #303030;
+  margin-bottom: .5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+h4, h5, h6 {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Body text */
+strong {
+  color: #303030;
+}
+
+small {
+  font-size: 75%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Misc */
+hr {
+  border-bottom: 1px solid #e4e4e4;
+  margin: 1.5rem 0;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #505050;
+  text-transform: uppercase;
+}
+abbr[title] {
+  cursor: help;
+}
+
+img {
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+
+/* Code */
+code,
+pre {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Inline */
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  background-color: #f8f8f8;
+  color: #bd4147;
+  border-radius: 3px;
+}
+
+/* Block */
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  line-height: 1.4;
+  background-color: #f8f8f8;
+  overflow: auto;
+}
+pre code {
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+  border-radius: 0;
+}
+
+.highlight {
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+pre.highlight {
+  margin-bottom: 0;
+}
+
+/* Quotes */
+blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #727272;
+  border-left: .25rem solid #cfcfcf;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 480px) {
+  blockquote {
+    padding-right: 5rem;
+  }
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border: 1px solid #e4e4e4;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+td,
+th {
+  padding: .25rem .5rem;
+  border: 1px solid #e4e4e4;
+}
+tbody tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+
+/*
+ * Wrapper
+ *
+ * The wrapper is used to position site content when the sidebar is toggled. We
+ * use an outter wrap to position the sidebar without interferring with the
+ * regular page content.
+ */
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  transform: translateX(0);
+}
+.wrapper.shift {
+  transform: translateX(16rem);
+}
+
+
+/*
+ * Container
+ *
+ * Center the page content.
+ */
+
+.container {
+  max-width: 28rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+  overflow: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 32rem;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 42rem;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 60rem;
+  }
+}
+
+
+/*
+ * Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
+
+.masthead {
+  position: relative;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  background-color: #3f52b8;
+}
+.masthead-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #fff;
+}
+.masthead-title a {
+  color: inherit;
+}
+.masthead-title small {
+  color: #ccc;
+}
+@media (max-width: 768px) {
+  .masthead-title {
+    text-align: center;
+  }
+  .masthead-title small {
+    display: none;
+  }
+}
+
+
+/*
+ * Sidebar
+ *
+ * The sidebar is the drawer, the item we are toggling with our handy hamburger
+ * button in the corner of the page.
+ */
+
+/* Style and "hide" the sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -16rem;
+  bottom: 0;
+  width: 16rem;
+  font-size: .875rem; /* 14px */
+  background-color: #263238;
+  border-right: 2px solid #11171a;
+  overflow-y: auto;
+  transform: translateX(0);
+  visibility: hidden;
+}
+.sidebar.open {
+  transform: translateX(16rem);
+  visibility: visible;
+}
+
+/* Sidebar content */
+.sidebar-brand {
+  display: block;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.sidebar-item {
+  padding: 1rem;
+  text-align: center;
+  color: #ccc;
+}
+.sidebar-item:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .sidebar-item {
+    padding: 1.5rem;
+  }
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  background-color: #263238;
+  color: #fff;
+}
+.sidebar-nav-item {
+  position: relative;
+  display: block;
+  padding: .5rem 1rem;
+  text-align: center;
+  color: inherit;
+}
+.sidebar-nav-item:hover {
+  text-decoration: underline;
+}
+.sidebar-nav-item.active {
+  text-decoration: none;
+  background-color: #1c2429;
+  cursor: default;
+}
+.sidebar-nav-item.active:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  border-right: 2px solid #fff;
+}
+@media (min-width: 768px) {
+  .sidebar-nav-item {
+    padding: .5rem 1.5rem;
+  }
+}
+
+/* Sidebar toggle */
+.sidebar-toggle {
+  position: absolute;
+  top:  50%;
+  left: 1rem;
+  width: 44px;
+  height: 36px;
+  margin-top: -18px;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sidebar-toggle .icon-bar {
+  position: absolute;
+  display: block;
+  width: 22px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 1px;
+}
+.sidebar-toggle .icon-bar:nth-child(1) {
+  top:  8px;
+  left: 10px;
+}
+.sidebar-toggle .icon-bar:nth-child(2) {
+  top:  15px;
+  left: 10px;
+}
+.sidebar-toggle .icon-bar:nth-child(3) {
+  top:  22px;
+  left: 10px;
+}
+
+.sidebar-toggle.active {
+  background-color: #283593;
+}
+.sidebar-toggle.active .icon-bar:nth-child(1) {
+  top: 15px;
+  transform: rotate(-45deg);
+}
+.sidebar-toggle.active .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+.sidebar-toggle.active .icon-bar:nth-child(3) {
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+
+/* Slide effect
+ *
+ * Handle the sliding effects of the sidebar and content in one spot, seperate
+ * from the default styles.
+ */
+
+.wrapper,
+.sidebar {
+  transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+}
+
+.sidebar-toggle .icon-bar {
+  transition: all .6s ease-in-out;
+}
+
+
+/*
+ * Posts and pages
+ *
+ * Each post is wrapped in `.post` and is used on default and post layouts. Each
+ * page is wrapped in `.page` and is only used on the page layout.
+ */
+
+.page,
+.post {
+  color: #303030;
+  margin-bottom: 3rem;
+}
+
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+  color: #303030;
+}
+.page-title,
+.post-title {
+  margin-top: 0;
+}
+
+/* Meta data line below post title */
+.post-date {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #969696;
+}
+
+/* Post body */
+.post-body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  height: 4.5em;
+  color: #505050;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Post header */
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+/* Post footer */
+.footer {
+  margin-bottom: 2rem;
+  border-top: 1px solid #e4e4e4;
+}
+
+.related-posts {
+  padding-left: 0;
+  list-style: none;
+}
+.related-posts .post-date {
+  float: right;
+  margin: 0;
+}
+
+
+/*
+ * Pagination
+ *
+ * Super lightweight (HTML-wise) blog pagination. Disabled is applied for when
+ * there are no more previous or next posts to show.
+ */
+
+.page-navs {
+  margin: 0 2rem 1rem;
+  text-align: center;
+}
+
+.page-navs .page-link,
+.page-navs .page-meter {
+  display: block;
+  padding: .3rem .5rem;
+}
+
+.page-navs .page-link {
+  min-width: 6rem;
+  background-color: #e4e4e4;
+  color: #303030;
+  border-radius: 3px;
+}
+.page-navs .page-link.disabled {
+  color: #969696;
+  cursor: not-allowed;
+}
+
+.page-navs .page-meter input {
+  width: 1.2em;
+  text-align: center;
+  border: 1px solid #e4e4e4;
+  outline: none;
+  -moz-appearance: textfield;
+}
+.page-navs .page-meter input:focus {
+  border: 1px solid #3f52b8;
+}
+.page-navs .page-meter input.invalid {
+  border-color: #f44336;
+  box-shadow: 0 0 3px #ff5252;
+}
+.page-navs .page-meter input::-webkit-inner-spin-button,
+.page-navs .page-meter input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+@media (min-width: 480px) {
+  .page-navs {
+    margin-bottom: 2rem;
+  }
+
+  .page-navs .page-link,
+  .page-navs .page-meter {
+    display: inline-block;
+  }
+}
+
+
+/*
+ * Icon
+ *
+ * Minimal icon element styles.
+ */
+
+.icon {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+
+/*
+ * Tags
+ *
+ * Simple post tag support. Posts are grouped by tag and listed in `.tag-list`.
+ * All tags are available in `.tag-navs` for quick navigation.
+ */
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+.tag-list>li {
+  border-top: 1px solid #e4e4e4;
+}
+
+.tagged-posts {
+  list-style: disc;
+}
+.tagged-posts .post-title {
+  vertical-align: middle;
+}
+.tagged-posts .post-date {
+  float: right;
+  margin: 0;
+}
+
+.tag-navs {
+  margin-bottom: 1.5rem;
+}
+.tag-navs:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.tag-navs .tag-link {
+  float: left;
+  padding: 2px 8px;
+  margin: .25rem;
+  background-color: #283593;
+  color: #fff;
+  border-radius: 3px;
+}
