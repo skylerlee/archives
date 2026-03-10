@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://skylerlee.github.io/'
 languageCode = 'en-US'
-title = 'My New Hugo Project'
+title = 'Archives'
 
 [menus]
   [[menus.main]]
