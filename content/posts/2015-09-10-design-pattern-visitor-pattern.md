@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 设计模式——访问者模式
-date: 2015-09-10 24:05:23 +0800
+date: 2015-09-10 00:05:23 +0800
 tags:
   - coding
   - design-pattern
