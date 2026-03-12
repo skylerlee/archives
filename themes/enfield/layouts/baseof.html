@@ -4,14 +4,25 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
+  <div class="wrapper" id="wrapper">
+    <div class="masthead">
+      <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Toggle sidebar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="{{ "/" | relLangURL }}">{{ site.Title }}</a>
+          {{ with site.Params.tagline }}<small>{{ . }}</small>{{ end }}
+        </h3>
+      </div>
+    </div>
+    <div class="container content">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </div>
+  {{ partial "sidebar.html" . }}
+  {{ partial "head/js.html" . }}
 </body>
 </html>

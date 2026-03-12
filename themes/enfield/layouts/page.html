@@ -1,10 +1,37 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
+<div class="header">
+  <h1 class="post-title">{{ .Title }}</h1>
+  {{ if .Date }}
+    <span class="post-date">{{ .Date | time.Format "2 Jan 2006" }}</span>
+  {{ end }}
+</div>
+<div class="post">
   {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+</div>
+{{ if eq .Section "posts" }}
+<div class="footer">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+    {{ range . }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      <span class="post-date">{{ .Date | time.Format "2 Jan 2006" }}</span>
+    </li>
+    {{ end }}
+  {{ else }}
+    {{ range (where site.RegularPages "Section" "posts" | first 4) }}
+      {{ if ne .Permalink $.Permalink }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <span class="post-date">{{ .Date | time.Format "2 Jan 2006" }}</span>
+      </li>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  </ul>
+</div>
+{{ end }}
+{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 {{ end }}

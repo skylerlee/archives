@@ -1,6 +1,19 @@
 baseURL = 'https://skylerlee.github.io/'
 languageCode = 'en-US'
 title = 'Archives'
+theme = 'enfield'
+paginate = 5
+
+[params]
+  tagline = 'Keep code simple stupid'
+  description = 'My technical blog about thinking and coding'
+  github_repo = 'https://github.com/skylerlee/archives'
+
+[outputs]
+  home = ["html"]
+
+[permalinks]
+  posts = "/:year/:month/:day/:slug/"
 
 [caches]
   [caches.images]

@@ -2,6 +2,14 @@ baseURL = 'https://skylerlee.github.io/'
 languageCode = 'en-US'
 title = 'Archives'
 
+[params]
+  tagline = 'Keep code simple stupid'
+  description = 'My technical blog about thinking and coding'
+  github_repo = 'https://github.com/skylerlee/archives'
+
+[outputs]
+  home = ["html"]
+
 [menus]
   [[menus.main]]
     name = 'Home'

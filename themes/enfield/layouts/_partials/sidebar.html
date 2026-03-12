@@ -1,0 +1,31 @@
+{{ $page := . }}
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    {{ with site.Params.description }}
+      <span>{{ . }}</span>
+    {{ else }}
+      <span>{{ site.Title }}</span>
+    {{ end }}
+  </div>
+  <nav class="sidebar-nav">
+    {{ with site.Menus.main }}
+      {{ range . }}
+        {{ $isActive := or ($page.IsMenuCurrent .Menu .) ($page.HasMenuCurrent .Menu .) }}
+        {{ if $isActive }}
+          <a class="sidebar-nav-item active" aria-current="page">{{ .Name }}</a>
+        {{ else }}
+          <a class="sidebar-nav-item" href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </nav>
+  <div class="sidebar-item">
+    {{ with site.Params.github_repo }}
+      <a class="sidebar-brand" href="{{ . }}">
+        Powered by
+        <span class="icon">GitHub</span>
+      </a>
+    {{ end }}
+    <span>&copy; {{ now.Year }}. All rights reserved.</span>
+  </div>
+</div>

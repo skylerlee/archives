@@ -1,9 +1,15 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
+<div class="posts">
+  {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
+  {{ range $paginator.Pages }}
+  <div class="post">
+    <h2 class="post-title">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </h2>
+    <span class="post-date">{{ .Date | time.Format "2 Jan 2006" }}</span>
+    <p class="post-body">{{ .Summary | plainify | truncate 300 }}</p>
+  </div>
   {{ end }}
+</div>
+{{ partial "pagination.html" . }}
 {{ end }}
