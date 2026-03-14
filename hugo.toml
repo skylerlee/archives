@@ -1,6 +1,6 @@
-baseURL = 'https://skylerlee.github.io/'
+baseURL = 'https://skylerlee.github.io/archives/'
 languageCode = 'en-US'
-title = 'Archives'
+title = ''
 theme = 'enfield'
 paginate = 5
 

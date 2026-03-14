@@ -1,11 +1,11 @@
-baseURL = 'https://skylerlee.github.io/'
+baseURL = '/'
 languageCode = 'en-US'
-title = 'Archives'
+title = 'Enfield'
 
 [params]
-  tagline = 'Keep code simple stupid'
-  description = 'My technical blog about thinking and coding'
-  github_repo = 'https://github.com/skylerlee/archives'
+  tagline = 'Enfield'
+  description = 'theme for hugo'
+  github_repo = 'https://github.com'
 
 [outputs]
   home = ["html"]
