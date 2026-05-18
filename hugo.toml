@@ -1,11 +1,11 @@
 baseURL = 'https://skylerlee.github.io/archives/'
 languageCode = 'en-US'
-title = ''
+title = 'ArchiX'
 theme = 'enfield'
 paginate = 5
 
 [params]
-  tagline = 'Keep code simple stupid'
+  tagline = 'Nothing stands, we go deeper'
   description = 'My technical blog about thinking and coding'
   github_repo = 'https://github.com/skylerlee/archives'
 
