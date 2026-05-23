@@ -1,6 +1,13 @@
 {
   "name": "archives",
+  "description": "A simple and clean theme for your technical blog.",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skylerlee/archives.git"
+  },
+  "author": "skylerlee <skyler.ac.lee@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "modern-normalize": "^3.0.1"
   }
