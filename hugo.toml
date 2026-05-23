@@ -4,6 +4,11 @@ title = 'ArchiX'
 theme = 'enfield'
 paginate = 5
 
+[module]
+  [[module.mounts]]
+    source = 'node_modules'
+    target = 'assets/node_modules'
+
 [params]
   tagline = 'Nothing stands, we go deeper'
   description = 'My technical blog about thinking and coding'

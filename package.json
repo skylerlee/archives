@@ -1,0 +1,7 @@
+{
+  "name": "archives",
+  "private": true,
+  "dependencies": {
+    "modern-normalize": "^3.0.1"
+  }
+}
