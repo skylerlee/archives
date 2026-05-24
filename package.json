@@ -9,9 +9,11 @@
   "author": "skylerlee <skyler.ac.lee@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm typecheck && hugo build --minify"
   },
   "dependencies": {
+    "cash-dom": "^8.1.5",
     "modern-normalize": "^3.0.1"
   },
   "devDependencies": {
