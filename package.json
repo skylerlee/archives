@@ -8,7 +8,13 @@
   },
   "author": "skylerlee <skyler.ac.lee@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "modern-normalize": "^3.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
   }
 }

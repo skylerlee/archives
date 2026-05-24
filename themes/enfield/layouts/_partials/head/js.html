@@ -1,8 +1,8 @@
-{{- with resources.Get "js/main.js" }}
+{{- with resources.Get "src/enfield.ts" }}
   {{- $opts := dict
+    "targetPath" "js/enfield.js"
     "minify" (not hugo.IsDevelopment)
     "sourceMap" (cond hugo.IsDevelopment "external" "")
-    "targetPath" "js/main.js"
   }}
   {{- with . | js.Build $opts }}
     {{- if hugo.IsDevelopment }}

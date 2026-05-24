@@ -1,4 +1,7 @@
-{{- $opts := dict "targetPath" "css/enfield.css" }}
+{{- $opts := dict
+  "targetPath" "css/enfield.css"
+  "includePaths" (slice "node_modules")
+}}
 {{- with resources.Get "scss/enfield.scss" | css.Sass $opts }}
   {{- if hugo.IsDevelopment }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
