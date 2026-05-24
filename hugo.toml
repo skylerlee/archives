@@ -2,12 +2,9 @@ baseURL = 'https://skylerlee.github.io/archives/'
 languageCode = 'en-US'
 title = 'ArchiX'
 theme = 'enfield'
-paginate = 5
 
-[module]
-  [[module.mounts]]
-    source = 'node_modules'
-    target = 'assets/node_modules'
+[pagination]
+  pagerSize = 5
 
 [params]
   tagline = 'Nothing stands, we go deeper'

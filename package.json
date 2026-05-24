@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "pnpm typecheck && hugo build --minify"
+    "build": "npm run typecheck && hugo build --minify"
   },
   "dependencies": {
     "cash-dom": "^8.1.5",
