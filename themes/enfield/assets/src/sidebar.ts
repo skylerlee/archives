@@ -9,14 +9,42 @@ export function initSidebar(): void {
     return;
   }
 
+  const isOpen = (): boolean => $sidebar.hasClass('open');
+
+  const closeSidebar = (): void => {
+    $toggle.removeClass('active');
+    $sidebar.removeClass('open');
+    $wrapper.removeClass('shift');
+  };
+
+  const openSidebar = (): void => {
+    $toggle.addClass('active');
+    $sidebar.addClass('open');
+    $wrapper.addClass('shift');
+  };
+
   $toggle.on('click', () => {
-    $toggle.toggleClass('active');
-    if ($toggle.hasClass('active')) {
-      $sidebar.addClass('open');
-      $wrapper.addClass('shift');
+    if (isOpen()) {
+      closeSidebar();
     } else {
-      $sidebar.removeClass('open');
-      $wrapper.removeClass('shift');
+      openSidebar();
+    }
+  });
+
+  $(document).on('click', (e) => {
+    if (!isOpen()) {
+      return;
+    }
+    const target = e.target as Node;
+    if ($sidebar[0]?.contains(target) || $toggle[0]?.contains(target)) {
+      return;
+    }
+    closeSidebar();
+  });
+
+  $(document).on('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen()) {
+      closeSidebar();
     }
   });
 }

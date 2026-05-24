@@ -17,9 +17,10 @@ export function initPagination(): void {
     const val = parseInt(String($cursor.val()), 10);
     if (val >= min && val <= max) {
       const path = location.pathname;
-      const base = path.replace(/\/page\d+\/?$/, '/').replace(/\/$/, '');
-      const dest = val > 1 ? `${base}/page${val}/` : `${base}/`;
-      if (dest !== path) {
+      const base = path.replace(/\/page\/\d+\/?$/, '').replace(/\/$/, '') || '/';
+      const dest = val > 1 ? `${base}/page/${val}/` : `${base}/`;
+      const norm = (p: string) => p.replace(/\/$/, '') || '/';
+      if (norm(dest) !== norm(path)) {
         document.location = dest;
       }
     } else {
