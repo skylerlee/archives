@@ -1,0 +1,23 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      modern-normalize:
+        specifier: ^3.0.1
+        version: 3.0.1
+
+packages:
+
+  modern-normalize@3.0.1:
+    resolution: {integrity: sha512-VqlMdYi59Uch6fnUPxnpijWUQe+TW6zeWCvyr6Mb7JibheHzSuAAoJi2c71ZwIaWKpECpGpYHoaaBp6rBRr+/g==}
+    engines: {node: '>=6'}
+
+snapshots:
+
+  modern-normalize@3.0.1: {}
